@@ -69,6 +69,7 @@
   padding: 0;
   position: relative;
   font-weight: normal;
+  color: var(--foreground-clr);
 }
 
 body {
@@ -85,6 +86,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html, body, #app {
+html, body, #app, section {
   min-height: 100vh;
 }

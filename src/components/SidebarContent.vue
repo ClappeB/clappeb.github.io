@@ -11,7 +11,7 @@ const emits = defineEmits(["close"]);
 
 const goToLocation = (anchor: string) => {
     emits("close");
-    let url = location.href;               //Saving URL without hash.
+    //let url = location.href;               //Saving URL without hash.
     location.href = "#"+anchor;                 //Navigate to the target element.
     //history.replaceState(null,"",url);   //method modifies the current history entry.
 }
