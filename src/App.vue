@@ -1,35 +1,37 @@
 <script setup lang="ts">
 import type { SideBarItem } from "./types/app";
 
-import { ref } from 'vue'
+import { ref } from "vue";
 
-import { RouterLink, RouterView } from "vue-router";
-import SideBar from 'primevue/sidebar';
-import Button from 'primevue/button';
-import SidebarContent from '!/SidebarContent.vue';
-import Home from './components/Home.vue'
+import SideBar from "primevue/sidebar";
+import Button from "primevue/button";
+import SidebarContent from "!/SidebarContent.vue";
+import HomePage from "§/HomePage.vue";
+import AboutPage from "§/AboutPage.vue";
 
 const navbarVisible = ref(false);
-const toggle = () => navbarVisible.value = !navbarVisible.value;
+const toggle = () => (navbarVisible.value = !navbarVisible.value);
 
-const items : Array<SideBarItem> = [
-  {id: 1, label: "About me", icon: "pi-info-circle", anchor: "about"},
-  {id: 2, label: "My resume", icon: "pi-user", anchor: "resume"},
-  {id: 3, label: "My skills", icon: "pi-code", anchor: "skills"},
-  {id: 4, label: "Contact me", icon: "pi-inbox", anchor: "contact"}
-] ;
-
+const items: Array<SideBarItem> = [
+  { label: "Home", icon: "pi-home"},
+  { label: "About me", icon: "pi-info-circle", anchor: "about" },
+  { label: "My experiences", icon: "pi-briefcase", anchor: "experience" },
+  { label: "My skills", icon: "pi-code", anchor: "skills" },
+  { label: "My projects", icon: "pi-list", anchor: "projects" },
+  { label: "My resume", icon: "pi-user", anchor: "resume" },
+  { label: "Contact me", icon: "pi-inbox", anchor: "contact" },
+];
 </script>
 
 <template>
   <SideBar v-model:visible="navbarVisible" class="navbar">
-    <SidebarContent :items="items" @close="toggle"/>
+    <SidebarContent :items="items" @close="toggle" />
   </SideBar>
   <Transition name="slide">
     <Button v-if="!navbarVisible" icon="pi pi-bars" @click="toggle" class="p-button-rounded p-button-outlined menu-btn"></Button>
   </Transition>
-  <Home />
-
+  <HomePage />
+  <AboutPage />
 </template>
 
 <style scoped lang="scss">
@@ -38,17 +40,18 @@ const items : Array<SideBarItem> = [
   right: 8vw;
   bottom: 6vh;
   font-size: 25px;
-  width: clamp(20px, 50px, 80px)!important;
-  height: clamp(20px, 50px, 80px)!important;
+  width: clamp(20px, 50px, 80px) !important;
+  height: clamp(20px, 50px, 80px) !important;
   z-index: 999;
 }
 
 .slide-enter-active,
 .slide-leave-active {
-  transition: bottom 0.8s cubic-bezier(.66,-0.59,.47,1.62);
-} 
+  transition: bottom 0.8s cubic-bezier(0.66, -0.59, 0.47, 1.62);
+}
 
-.slide-enter-from, .slide-leave-to {
+.slide-enter-from,
+.slide-leave-to {
   bottom: -8vh;
 }
 </style>

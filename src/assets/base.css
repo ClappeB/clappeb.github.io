@@ -28,6 +28,7 @@
   --green-light: #04D939;
   --blue-dark: #2E75FF;
   --blue-light: #00B4FF;
+  --black: #171a22;
   
   --home-bg: linear-gradient(0deg, #012340FF 0%, #012340FF 70%, #012340D6 80%, #0123408F 100%);
 }
@@ -73,9 +74,6 @@
 }
 
 body {
-  min-height: 100vh;
-  /*color: var(--color-text);*/
-  /*background: var(--color-background);*/
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
@@ -88,4 +86,9 @@ body {
 
 html, body, #app, section {
   min-height: 100vh;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
 }
