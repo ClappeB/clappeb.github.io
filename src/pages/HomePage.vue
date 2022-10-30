@@ -8,7 +8,6 @@ const socials: Array<SocialImage> = [
 
 <template>
   <section class="home">
-    <canvas id="background"></canvas>
     <div>
       <p class="name">Bruno</p>
       <p class="surname">Clappe</p>
@@ -16,11 +15,11 @@ const socials: Array<SocialImage> = [
     </div>
     <div class="logos">
       <a v-for="(img, index) in socials" :key="index" class="logo" :href="img.link" target="_blank">
-        <img defer :src="img.url" :alt="img.alt" />
+        <img loading="lazy" :src="img.url" :alt="img.alt" />
       </a>
     </div>
     <div>
-      <img defer src="/images/double_arrows.png" class="scrolldown" />
+      <img loading="lazy" src="/images/double_arrows_blue.png" class="scrolldown" />
     </div>
   </section>
 </template>
@@ -39,12 +38,13 @@ const socials: Array<SocialImage> = [
   font-size: 4.5em;
   margin: -1.5rem 0;
   z-index: 1;
+  color: var(--blue-light);
 }
 
 .surname {
   font-size: 5.2rem;
   margin: -4rem 0 0 0;
-  color: var(--blue-light);
+  color: var(--blue-green);
 }
 
 .subheading {
@@ -67,7 +67,7 @@ canvas {
 .logo {
   border-radius: 50%;
   background: white;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border: none;
   display: flex;
   align-items: center;

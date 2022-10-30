@@ -13,7 +13,7 @@ const navbarVisible = ref(false);
 const toggle = () => (navbarVisible.value = !navbarVisible.value);
 
 const items: Array<SideBarItem> = [
-  { label: "Home", icon: "pi-home"},
+  { label: "Home", icon: "pi-home" },
   { label: "About me", icon: "pi-info-circle", anchor: "about" },
   { label: "My experiences", icon: "pi-briefcase", anchor: "experience" },
   { label: "My skills", icon: "pi-code", anchor: "skills" },
@@ -43,6 +43,8 @@ const items: Array<SideBarItem> = [
   width: clamp(20px, 50px, 80px) !important;
   height: clamp(20px, 50px, 80px) !important;
   z-index: 999;
+  background: var(--gray) !important;
+  border: none !important;
 }
 
 .slide-enter-active,
