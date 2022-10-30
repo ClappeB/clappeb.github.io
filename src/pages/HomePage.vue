@@ -8,7 +8,6 @@ const socials: Array<SocialImage> = [
 
 <template>
   <section class="home">
-    <canvas id="background"></canvas>
     <div>
       <p class="name">Bruno</p>
       <p class="surname">Clappe</p>
@@ -16,11 +15,11 @@ const socials: Array<SocialImage> = [
     </div>
     <div class="logos">
       <a v-for="(img, index) in socials" :key="index" class="logo" :href="img.link" target="_blank">
-        <img defer :src="img.url" :alt="img.alt" />
+        <img loading="lazy" :src="img.url" :alt="img.alt" />
       </a>
     </div>
     <div>
-      <img defer src="/images/double_arrows.png" class="scrolldown" />
+      <img loading="lazy" src="/images/double_arrows.png" class="scrolldown" />
     </div>
   </section>
 </template>

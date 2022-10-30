@@ -89,6 +89,15 @@ html, body, #app, section {
   position: relative;
 }
 
+section {
+  display: flex;
+  align-items: center;
+}
+
+section > div {
+  max-width: 1024px;
+}
+
 html {
   scroll-behavior: smooth;
 }

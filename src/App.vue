@@ -43,6 +43,8 @@ const items: Array<SideBarItem> = [
   width: clamp(20px, 50px, 80px) !important;
   height: clamp(20px, 50px, 80px) !important;
   z-index: 999;
+  background: var(--blue-light)!important;
+  color: black!important;
 }
 
 .slide-enter-active,
