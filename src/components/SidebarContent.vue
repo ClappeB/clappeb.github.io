@@ -29,7 +29,7 @@ const goToLocation = (anchor: string | undefined) => {
 
 <style scoped lang="scss">
 .wrapper {
-  --btn-background: linear-gradient(90deg, var(--background-clr) 0 1%, var(--blue-light) 0%, var(--background-clr) 50%);
+  --btn-background: linear-gradient(90deg, var(--background-clr) 0 1%, var(--green-light) 0%, var(--background-clr) 50%);
 
   display: flex;
   flex-direction: column;

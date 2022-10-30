@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import Button from "primevue/button";
+
 const descriptions = [
   "My name is Bruno Clappe. I am a software engineer attracted toward DevOps. I am a graduate of CESI with a master’s degree in software development.",
   "Enthusiast learner, I aim at providing great code and giving it the possibility to easily flow.",
@@ -16,6 +18,7 @@ const descriptions = [
     <div class="description">
       <p v-for="(desc, index) in descriptions" :key="index">{{ desc }}</p>
     </div>
+    <Button type="button" class="resume-btn" label="Resume" icon="pi pi-download" />
   </section>
 </template>
 
@@ -51,9 +54,14 @@ const descriptions = [
 .description {
   text-align: justify;
   font-size: 1.1rem;
+  margin-bottom: 5.4vh;
 }
 
 .description > p:not(:last-child) {
   margin-bottom: 0.5rem;
+}
+
+.resume-btn {
+
 }
 </style>
