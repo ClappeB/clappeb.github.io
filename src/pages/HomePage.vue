@@ -19,7 +19,7 @@ const socials: Array<SocialImage> = [
       </a>
     </div>
     <div>
-      <img loading="lazy" src="/images/double_arrows.png" class="scrolldown" />
+      <img loading="lazy" src="/images/double_arrows_blue.png" class="scrolldown" />
     </div>
   </section>
 </template>
@@ -38,12 +38,13 @@ const socials: Array<SocialImage> = [
   font-size: 4.5em;
   margin: -1.5rem 0;
   z-index: 1;
+  color: var(--blue-light);
 }
 
 .surname {
   font-size: 5.2rem;
   margin: -4rem 0 0 0;
-  color: var(--blue-light);
+  color: var(--blue-green);
 }
 
 .subheading {
@@ -66,7 +67,7 @@ canvas {
 .logo {
   border-radius: 50%;
   background: white;
-  padding: 0.5rem;
+  padding: 0.4rem;
   border: none;
   display: flex;
   align-items: center;

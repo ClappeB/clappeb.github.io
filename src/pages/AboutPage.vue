@@ -31,6 +31,7 @@ const descriptions = [
   font-size: 3rem;
   text-align: center;
   margin-bottom: 6vh;
+  color: var(--blue-light);
 }
 
 .photo {
@@ -44,11 +45,12 @@ const descriptions = [
   display: block;
   max-width: 250px;
   max-height: 250px;
-  border: dotted var(--blue-light) 2px;
+  box-shadow: 0px 0px 10px 1px var(--blue-light);
 }
 
 .description {
   text-align: justify;
+  font-size: 1.1rem;
 }
 
 .description > p:not(:last-child) {
