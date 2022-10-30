@@ -84,6 +84,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html, body, #app, section {
   min-height: 100vh;
   position: relative;
@@ -92,12 +96,15 @@ html, body, #app, section {
 section {
   display: flex;
   align-items: center;
+  min-height: 110vh;
 }
 
 section > div {
   max-width: 1024px;
 }
 
-html {
-  scroll-behavior: smooth;
+.page-section {
+  display: flex;
+  flex-direction: column;
+  padding: 8vh 5vh;
 }
