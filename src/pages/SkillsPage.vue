@@ -1,91 +1,25 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import Chart from "primevue/chart";
-import { FilterMatchMode, FilterOperator } from "primevue/api";
-import Dropdown from "primevue/dropdown";
+import { FilterMatchMode } from "primevue/api";
 import Column from "primevue/column";
 import MultiSelect from "primevue/multiselect";
 import InputText from "primevue/inputtext";
 import TriStateCheckbox from "primevue/tristatecheckbox";
 import DataTable from "primevue/datatable";
 
-const chartData = ref({
-  datasets: [
-    {
-      data: [4, 3.5, 2.5, 2.5, 2],
-      backgroundColor: ["#FF0000AA", "#FFFF00AA", "#00FF00AA", "#0080FFAA", "#8000FFAA"],
-      borderWidth: 0,
-      label: "My skills",
-      max: 5,
-    },
-  ],
-  labels: ["Development", "Database", "DevOps", "Network", "Security"],
-});
+import { useAppStore } from "@/stores/app_store";
 
-const chartOptions = ref({
-  plugins: {
-    legend: {
-      labels: {
-        color: "#fff",
-        font: {
-          size: 18,
-        },
-      },
-      position: "bottom",
-    },
-  },
-  scales: {
-    r: {
-      grid: {
-        color: "#fff",
-      },
-      ticks: {
-        color: "white",
-        count: 6,
-        stepSize: 1,
-        z: 10,
-        showLabelBackdrop: false,
-        font: {
-          size: 25,
-        },
-      },
-      suggestedMax: 5,
-    },
-  },
-});
+const store = useAppStore();
 
-type Skill = { name: string; field: string; use: Array<string>; framework: boolean };
-const skills = {
-  data: [
-    { name: "Go", field: "Development", use: ["Backend", "Standalone"], framework: false },
-    { name: "Python", field: "Development", use: ["Scripting", "Standalone"], framework: false },
-    { name: "Java", field: "Development", use: ["Backend", "Standalone"], framework: false },
-    { name: "Javascript", field: "Development", use: ["Frontend", "Backend"], framework: false },
-    { name: "Typescript", field: "Development", use: ["Frontend", "Backend"], framework: false },
-    { name: "HTML", field: "Development", use: ["Frontend"], framework: false },
-    { name: "CSS", field: "Development", use: ["Frontend"], framework: false },
-    { name: "SCSS", field: "Development", use: ["Frontend"], framework: false },
-    { name: "VueJS", field: "Development", use: ["Frontend"], framework: true },
-    { name: "ReactJS", field: "Development", use: ["Frontend"], framework: true },
-    { name: "Docker", field: "DevOps", use: ["Containers"], framework: false },
-    { name: "Kubernetes", field: "DevOps", use: ["Infrastructure as Code", "Deployment"], framework: false },
-    { name: "Podman", field: "DevOps", use: ["Containers"], framework: false },
-    { name: "CRI-O", field: "DevOps", use: ["Containers"], framework: false },
-    { name: "Bash", field: "System", use: ["Scripting"], framework: false },
-    { name: "Windows", field: "System", use: ["OS"], framework: false },
-    { name: "Linux", field: "System", use: ["OS"], framework: false },
-    { name: "MySQL", field: "Database", use: ["SQL"], framework: false },
-    { name: "ScyllaDB", field: "Database", use: ["NoSQL"], framework: false },
-    { name: "Redis", field: "Database", use: ["NoSQL"], framework: false },
-    { name: "MongoDB", field: "Database", use: ["NoSQL"], framework: false },
-    { name: "C#", field: "Development", use: ["Standalone"], framework: false },
-    { name: "Unity", field: "Development", use: ["Standalone", "Virtual Reality", "Augmented Reality"], framework: false },
-  ] as Array<Skill>,
-};
+const chartData = store.skillsPage.chart.data;
+const chartOptions = store.skillsPage.chart.options;
+
+const skills = ref(store.skillsPage.skills);
 
 const uniqueUses = new Set<string>();
 const uniqueFields = new Set<string>();
-skills.data.forEach((skill) => {
+skills.value.forEach((skill) => {
   uniqueFields.add(skill.field);
   skill.use.forEach((use) => uniqueUses.add(use));
 });
@@ -93,18 +27,13 @@ skills.data.forEach((skill) => {
 const uses = ref(Array.from(uniqueUses));
 const fields = ref(Array.from(uniqueFields));
 
-const customers2 = ref([] as Array<Skill>);
-const filters2 = ref({
+const filters = ref({
   global: { value: null, matchMode: FilterMatchMode.CONTAINS },
+  skill: { value: null, matchMode: FilterMatchMode.GREATER_THAN_OR_EQUAL_TO },
   name: { value: null, matchMode: FilterMatchMode.STARTS_WITH },
   field: { value: null, matchMode: FilterMatchMode.IN },
   use: { value: null, matchMode: FilterMatchMode.CONTAINS },
   framework: { value: null, matchMode: FilterMatchMode.EQUALS },
-});
-
-onMounted(() => {
-  if (!customers2.value) return;
-  customers2.value = skills.data;
 });
 </script>
 
@@ -120,31 +49,41 @@ onMounted(() => {
       <div class="skills-review">
         <div class="card datatable-wrapper">
           <DataTable
-            :value="customers2"
+            :value="skills"
             :paginator="true"
             class="p-datatable p-datatable-responsive-scroll datatable"
             :rows="10"
             dataKey="name"
-            v-model:filters="filters2"
+            v-model:filters="filters"
             filterDisplay="row"
             responsiveLayout="scroll"
             :globalFilterFields="['name', 'field', 'use', 'framework']">
             <template #header>
               <div class="global-search">
+                <p class="global-indicator">Search any keyword</p>
                 <span class="p-input-icon-left">
                   <i class="pi pi-search" />
-                  <InputText v-model="filters2['global'].value" placeholder="Keyword Search" />
+                  <InputText v-model="filters['global'].value" placeholder="Keyword Search" />
                 </span>
               </div>
             </template>
-            <template #empty> No customers found. </template>
-            <template #loading> Loading customers data. Please wait. </template>
+            <template #empty> No skills found yet... </template>
+            <template #loading> Loading skills data. Please wait. </template>
+            <Column field="skill" header="Skill" dataType="number" style="min-width: 4rem">
+              <template #body="{ data }">
+                {{ data.skill }}
+                <i class="pi pi-star-fill star" />
+              </template>
+              <template #filter="{ filterModel, filterCallback }">
+                <InputText type="number" min="0" max="5" step="0.5" v-model="filterModel.value" @change="filterCallback()" class="p-column-filter inputfield" :placeholder="'0'" />
+              </template>
+            </Column>
             <Column field="name" header="Name" style="min-width: 12rem">
               <template #body="{ data }">
                 {{ data.name }}
               </template>
               <template #filter="{ filterModel, filterCallback }">
-                <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Search by name - `" />
+                <InputText type="text" v-model="filterModel.value" @keydown.enter="filterCallback()" class="p-column-filter" :placeholder="`Name `" />
               </template>
             </Column>
             <Column header="Field" filterField="field" style="min-width: 12rem">
@@ -240,10 +179,29 @@ onMounted(() => {
 
 .global-search {
   display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  & > p {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+
+  & * {
+    width: 100%;
+  }
 
   & i {
     z-index: 5;
   }
+}
+
+.star {
+  color: rgb(240, 240, 0);
+}
+
+.inputfield {
+  min-width: clamp(60px, 15vw, 120px);
 }
 
 @media (max-width: 360px) {

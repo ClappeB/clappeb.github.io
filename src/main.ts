@@ -4,11 +4,11 @@ import { createPinia } from "pinia";
 import App from "./App.vue";
 import router from "./router";
 
-import PrimeVue from 'primevue/config';
+import PrimeVue from "primevue/config";
 
-import 'primeicons/primeicons.css';
-import 'primevue/resources/primevue.min.css'
-import 'primevue/resources/themes/saga-blue/theme.css';
+import "primeicons/primeicons.css";
+import "primevue/resources/primevue.min.css";
+import "primevue/resources/themes/saga-blue/theme.css";
 
 import "./assets/main.css";
 
