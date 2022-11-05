@@ -7,7 +7,7 @@ const socials: Array<SocialImage> = [
 </script>
 
 <template>
-  <section class="home">
+  <section id="home">
     <div>
       <p class="name">Bruno</p>
       <p class="surname">Clappe</p>
@@ -25,7 +25,7 @@ const socials: Array<SocialImage> = [
 </template>
 
 <style>
-.home {
+#home {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -51,6 +51,7 @@ const socials: Array<SocialImage> = [
   font-size: 1.5rem;
   font-style: italic;
   margin: -1rem 0 0 0;
+  color: var(--foreground-clr-inv);
 }
 
 canvas {
@@ -90,6 +91,20 @@ canvas {
   }
   70% {
     transform: translateY(0);
+  }
+}
+
+@media (min-width: 800px) {
+  .name {
+    font-size: clamp(4.5rem, 10vw, 8rem);
+    margin-bottom: clamp(-7.3rem, -9vw, -1.5rem);
+  }
+  .surname {
+    font-size: clamp(5.2rem, 12vw, 10rem);
+  }
+  .subheading {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    margin-top: clamp(-1.5rem, -8vw, -0.5rem);
   }
 }
 </style>

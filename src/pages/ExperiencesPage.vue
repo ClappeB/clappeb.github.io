@@ -4,7 +4,7 @@ import Chip from "primevue/chip";
 const experiences = [
   { jobTitle: "Chief Technical Officer", location: "Canada", technologies: ["Typescript", "Go"], company: "WeArt", startDate: "10/2022", endDate: "Present" },
   { jobTitle: "IT association president", location: "Lyon, France", technologies: ["Javascript", "Proxmox", "Docker", "Python"], company: "Coding Cartel", startDate: "02/2022", endDate: "Present" },
-  { jobTitle: "Backend developer", location: "Copenhagen, Denmark", technologies: ["Go"], company: "Wult", startDate: "09/2021", endDate: "02/2022" },
+  { jobTitle: "Backend developer", location: "Copenhagen, Denmark", technologies: ["Go", "BigQuery", "API", "Redis"], company: "Wult", startDate: "09/2021", endDate: "02/2022" },
   { jobTitle: "Backend developer", location: "Montpellier, France", technologies: ["Java", "Qlik"], company: "Berger-Levrault", startDate: "01/2021", endDate: "04/2021" },
 ];
 </script>
@@ -95,10 +95,11 @@ const experiences = [
   max-width: 100%;
   flex-wrap: wrap;
   height: auto;
+  color: var(--foreground-clr-inv);
 }
 
 .chip {
-  --foreground-clr: white;
+  color: var(--foreground-clr-inv);
   background-color: var(--gray);
   padding: 0px 15px;
 }

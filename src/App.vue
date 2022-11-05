@@ -9,6 +9,7 @@ import SidebarContent from "!/SidebarContent.vue";
 import HomePage from "§/HomePage.vue";
 import AboutPage from "§/AboutPage.vue";
 import ExperiencesPage from "§/ExperiencesPage.vue";
+import SkillsPage from "./pages/SkillsPage.vue";
 
 const navbarVisible = ref(false);
 const toggle = () => (navbarVisible.value = !navbarVisible.value);
@@ -35,6 +36,7 @@ const items: Array<SideBarItem> = [
   <HomePage />
   <AboutPage />
   <ExperiencesPage />
+  <SkillsPage />
 </template>
 
 <style scoped lang="scss">
@@ -47,6 +49,7 @@ const items: Array<SideBarItem> = [
   height: clamp(20px, 50px, 80px) !important;
   z-index: 999;
   background: var(--blue-green) !important;
+  color: var(--foreground-clr-inv) !important;
   border: none !important;
 }
 
