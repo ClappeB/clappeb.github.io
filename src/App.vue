@@ -9,7 +9,8 @@ import SidebarContent from "!/SidebarContent.vue";
 import HomePage from "§/HomePage.vue";
 import AboutPage from "§/AboutPage.vue";
 import ExperiencesPage from "§/ExperiencesPage.vue";
-import SkillsPage from "./pages/SkillsPage.vue";
+import SkillsPage from "§/SkillsPage.vue";
+import ContactPage from "§/ContactPage.vue";
 
 const navbarVisible = ref(false);
 const toggle = () => (navbarVisible.value = !navbarVisible.value);
@@ -37,6 +38,7 @@ const items: Array<SideBarItem> = [
   <AboutPage />
   <ExperiencesPage />
   <SkillsPage />
+  <ContactPage />
 </template>
 
 <style scoped lang="scss">

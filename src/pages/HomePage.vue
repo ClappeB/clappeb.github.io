@@ -2,7 +2,7 @@
 type SocialImage = { url: string; alt: string; link: string };
 const socials: Array<SocialImage> = [
   { url: "/images/github.png", alt: "Github logo", link: "https://github.com/ClappeB" },
-  { url: "/images/64linkedin.png", alt: "LinkedIn logo", link: "https://www.linkedin.com/in/bruno-clappe/" },
+  { url: "/images/linkedin.png", alt: "LinkedIn logo", link: "https://www.linkedin.com/in/bruno-clappe/" },
 ];
 </script>
 
