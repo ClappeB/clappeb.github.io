@@ -21,7 +21,8 @@
   --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
 
   --background-clr: #012340;
-  --foreground-clr: #fff;
+  --foreground-clr: #000;
+  --foreground-clr-inv: #fff;
 
   --blue-dark: #002B5B;
   --blue-green: #256D85;
@@ -70,7 +71,6 @@
   padding: 0;
   position: relative;
   font-weight: normal;
-  color: var(--foreground-clr);
 }
 
 body {
@@ -96,7 +96,7 @@ html, body, #app, section {
 section {
   display: flex;
   align-items: center;
-  min-height: 110vh;
+  min-height: 106vh;
 }
 
 section > div {

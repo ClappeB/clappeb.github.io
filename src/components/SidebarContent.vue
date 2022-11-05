@@ -58,7 +58,7 @@ const goToLocation = (anchor: string | undefined) => {
 }
 
 .navbar-title {
-  color: var(--foreground-clr);
+  color: var(--foreground-clr-inv);
   font-size: 2.5rem;
   text-align: center;
 }
