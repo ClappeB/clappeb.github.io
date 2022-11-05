@@ -82,6 +82,7 @@ export const useAppStore = defineStore("app", () => {
       { name: "ReactJS", field: "Development", use: ["Frontend"], framework: true, skill: 3 },
       { name: "Linux", field: "System", use: ["OS"], framework: false, skill: 3 },
       { name: "MySQL", field: "Database", use: ["SQL"], framework: false, skill: 3 },
+      { name: "Ionic", field: "Development", use: ["Frontend"], framework: true, skill: 2.5 },
       { name: "Python", field: "Development", use: ["Scripting", "Standalone"], framework: false, skill: 2.5 },
       { name: "Typescript", field: "Development", use: ["Frontend", "Backend"], framework: false, skill: 2.5 },
       { name: "Docker", field: "DevOps", use: ["Containers"], framework: false, skill: 2.5 },
