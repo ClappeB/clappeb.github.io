@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import type { Experience, Skill } from "@/types/app";
+import type { Experience, Skill, ContactWay } from "@/types/app";
 
 export const useAppStore = defineStore("app", () => {
   const aboutPage = {
@@ -96,5 +96,18 @@ export const useAppStore = defineStore("app", () => {
     ] as Array<Skill>,
   };
 
-  return { aboutPage, experiencesPage, skillsPage };
+  const contactPage = {
+    contactWays: [
+      { image: "/images/linkedin.png", calltoaction: "Send me a message", link: "https://www.linkedin.com/in/bruno-clappe/" },
+      {
+        image: "/images/envelope.png",
+        calltoaction: "Send me an email",
+        link: encodeURI(
+          "mailto:bruno.clappe@viacesi.fr?subject=I want to know more about you!&body=Hello Bruno,\n\nI found your profile on your website and I want to know more about you.\nCould we plan a video conference soon/-$\n\nBest regards,"
+        ).replace("/-$", "%3F"),
+      },
+    ],
+  };
+
+  return { aboutPage, experiencesPage, skillsPage, contactPage };
 });
