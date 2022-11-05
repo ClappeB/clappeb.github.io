@@ -1,10 +1,8 @@
 <script setup lang="ts">
 import Button from "primevue/button";
+import { useAppStore } from "@/stores/app_store";
 
-const descriptions = [
-  "My name is Bruno Clappe. I am a software engineer attracted toward DevOps. I am a graduate of CESI with a master’s degree in software development.",
-  "Enthusiast learner, I aim at providing great code and giving it the possibility to easily flow.",
-];
+const store = useAppStore();
 </script>
 
 <template>
@@ -16,7 +14,7 @@ const descriptions = [
       <img defer src="/images/profil.jpg" />
     </div>
     <div class="description">
-      <p v-for="(desc, index) in descriptions" :key="index">{{ desc }}</p>
+      <p v-for="(desc, index) in store.aboutPage.descriptions" :key="index">{{ desc }}</p>
     </div>
     <Button type="button" class="resume-btn" label="Resume" icon="pi pi-download" />
   </section>

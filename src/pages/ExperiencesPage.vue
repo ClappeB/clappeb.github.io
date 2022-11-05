@@ -1,12 +1,8 @@
 <script setup lang="ts">
 import Chip from "primevue/chip";
+import { useAppStore } from "@/stores/app_store";
 
-const experiences = [
-  { jobTitle: "Chief Technical Officer", location: "Canada", technologies: ["Typescript", "Go"], company: "WeArt", startDate: "10/2022", endDate: "Present" },
-  { jobTitle: "IT association president", location: "Lyon, France", technologies: ["Javascript", "Proxmox", "Docker", "Python"], company: "Coding Cartel", startDate: "02/2022", endDate: "Present" },
-  { jobTitle: "Backend developer", location: "Copenhagen, Denmark", technologies: ["Go", "BigQuery", "API", "Redis"], company: "Wult", startDate: "09/2021", endDate: "02/2022" },
-  { jobTitle: "Backend developer", location: "Montpellier, France", technologies: ["Java", "Qlik"], company: "Berger-Levrault", startDate: "01/2021", endDate: "04/2021" },
-];
+const store = useAppStore();
 </script>
 
 <template>
@@ -15,7 +11,7 @@ const experiences = [
       <h2 class="section-title">My Experiences</h2>
     </div>
     <div class="experiences">
-      <div v-for="(xp, index) in experiences" :key="index" class="experience">
+      <div v-for="(xp, index) in store.experiencesPage.experiences" :key="index" class="experience">
         <div>
           <p class="job-title">{{ xp.jobTitle }}</p>
           <p class="job-dates">{{ xp.startDate }} - {{ xp.endDate }}</p>
