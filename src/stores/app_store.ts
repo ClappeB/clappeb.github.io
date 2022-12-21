@@ -10,7 +10,6 @@ export const useAppStore = defineStore("app", () => {
   };
   const experiencesPage = {
     experiences: [
-      { jobTitle: "Chief Technical Officer", location: "Canada", technologies: ["Typescript", "Go"], company: "WeArt", startDate: "10/2022", endDate: "Present" },
       {
         jobTitle: "IT association president",
         location: "Lyon, France",
