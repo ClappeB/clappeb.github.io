@@ -6,7 +6,7 @@ import Column from "primevue/column";
 import MultiSelect from "primevue/multiselect";
 import InputText from "primevue/inputtext";
 import TriStateCheckbox from "primevue/tristatecheckbox";
-import DataTable from "primevue/datatable";
+//import DataTable from "primevue/datatable";
 
 import { useAppStore } from "@/stores/app_store";
 
@@ -51,7 +51,6 @@ const filters = ref({
           <DataTable
             :value="skills"
             :paginator="true"
-            class="p-datatable p-datatable-responsive-scroll datatable"
             :rows="10"
             dataKey="name"
             v-model:filters="filters"
@@ -129,7 +128,7 @@ const filters = ref({
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 #skills {
   background-color: var(--black);
   display: flex;

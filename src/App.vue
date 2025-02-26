@@ -5,12 +5,12 @@ import { ref, onMounted } from "vue";
 
 import SideBar from "primevue/sidebar";
 import Button from "primevue/button";
-import SidebarContent from "!/SidebarContent.vue";
-import HomePage from "§/HomePage.vue";
-import AboutPage from "§/AboutPage.vue";
-import ExperiencesPage from "§/ExperiencesPage.vue";
-import SkillsPage from "§/SkillsPage.vue";
-import ContactPage from "§/ContactPage.vue";
+import SidebarContent from "@components/SidebarContent.vue";
+import HomePage from "@pages/HomePage.vue";
+import AboutPage from "@pages/AboutPage.vue";
+import ExperiencesPage from "@pages/ExperiencesPage.vue";
+import SkillsPage from "@pages/SkillsPage.vue";
+import ContactPage from "@pages/ContactPage.vue";
 
 const navbarVisible = ref(false);
 const toggle = () => (navbarVisible.value = !navbarVisible.value);

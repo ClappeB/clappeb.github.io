@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import Button from "primevue/button";
 import { useAppStore } from "@/stores/app_store";
 
 const store = useAppStore();
@@ -16,10 +15,6 @@ const store = useAppStore();
     <div class="description">
       <p v-for="(desc, index) in store.aboutPage.descriptions" :key="index">{{ desc }}</p>
     </div>
-    <a type="button" class="resume-btn" href="https://www.canva.com/design/DAFWtXPUdxc/F7y9i1SG9-ZMhLVL-kgs5A/view" target="_blank">
-      <i class="pi pi-link"></i>
-      Resume
-    </a>
   </section>
 </template>
 
