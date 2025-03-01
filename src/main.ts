@@ -1,5 +1,4 @@
-/* eslint-disable vue/multi-word-component-names */
-import "./assets/main.css";
+import "./assets/main.scss";
 
 import { createApp } from "vue";
 import { createPinia } from "pinia";
@@ -8,16 +7,7 @@ import App from "./App.vue";
 import router from "./router";
 
 import PrimeVue from 'primevue/config';
-import Aura from '@primeuix/themes/aura';
-
-import Button from "primevue/button";
-import Chip from "primevue/chip";
-import MultiSelect from "primevue/multiselect";
-import Chart from "primevue/chart";
-import Column from "primevue/column";
-import InputText from "primevue/inputtext";
-import TriStateCheckbox from "primevue/tristatecheckbox";
-import DataTable from "primevue/datatable";
+import { CustomPreset } from "./theme/theme";
 
 const app = createApp(App);
 
@@ -25,7 +15,7 @@ app.use(createPinia());
 app.use(router);
 app.use(PrimeVue, {
     theme: {
-        preset: Aura,
+        preset: CustomPreset,
         options: {
             prefix: 'p',
             darkModeSelector: 'system',
@@ -33,14 +23,5 @@ app.use(PrimeVue, {
         }
     }
 });
-
-app.component("Button", Button);
-app.component("Chip", Chip);
-app.component("MultiSelect", MultiSelect);
-app.component("Chart", Chart);
-app.component("Column", Column);
-app.component("InputText", InputText);
-app.component("TriStateCheckbox", TriStateCheckbox);
-app.component("DataTable", DataTable);
 
 app.mount("#app");
